@@ -9,10 +9,11 @@ def home():
 	<h1> Please use the following format to get the data<h1>
 	<h1> https://heroku-app-us-admissions.herokuapp.com/api/&lt;GRE&gt;/&lt;GPA&gt;/&lt;RANK&gt; <h1>
 	<h1> In place of &lt;GRE&gt; enter something like 500 and so on in each of the 3 values within range<h1>
+	<h1> Allowed Range<h1>
 	<h1> 0<=GRE<=800 <h1>
 	<h1> 0<=GPA<=4 <h1>
 	<h1> 1<=RANK<=4 <h1>
-	<h1> Eg. type "https://heroku-app-us-admissions.herokuapp.com/api/500/3/2" this in url <h1>
+	<h1> Eg. type "https://heroku-app-us-admissions.herokuapp.com/api/500/3/2" in url box <h1>
 	<h1> If return value 0 then not admitted else if 1 then admitted<h1>
 	
 	"""
