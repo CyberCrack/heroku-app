@@ -7,8 +7,8 @@ def home():
 	<a href="https://heroku-app-us-admissions.herokuapp.com/">Home</a>
 	<h1>Hello<h1>
 	<h1> Please use the following format to get the data<h1>
-	<h1> https://heroku-app-us-admissions.herokuapp.com/api/<GRE>/<GPA>/<RANK><h1>
-	<h1> In place of <GRE> enter something like 500 and so on in each of the 3 values within range<h1>
+	<h1> https://heroku-app-us-admissions.herokuapp.com/api/&lt;GRE&gt;/&lt;GPA&gt;/&lt;RANK&gt; <h1>
+	<h1> In place of &lt;GRE&gt; enter something like 500 and so on in each of the 3 values within range<h1>
 	<h1> 0<=GRE<=800 <h1>
 	<h1> 0<=GPA<=4 <h1>
 	<h1> 1<=RANK<=4 <h1>
