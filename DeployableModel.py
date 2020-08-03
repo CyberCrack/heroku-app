@@ -73,8 +73,6 @@ def getPredictions(gre, gpa, rank):
 
 	allPredictions = [int(prediction) for prediction in allPredictions]
 
-	# print(allPredictions)
-	# print(0 if allPredictions.count(0) > allPredictions.count(1) else 1)
 	return 0 if allPredictions.count(0) > allPredictions.count(1) else 1
 
 if __name__ == "__main__":
