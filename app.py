@@ -14,6 +14,7 @@ def home():
 	<h1> 0<=GPA<=4 <h1>
 	<h1> 1<=RANK<=4 <h1>
 	<h1> Eg. type <a href="https://heroku-app-us-admissions.herokuapp.com/api/100/2/4">"https://heroku-app-us-admissions.herokuapp.com/api/100/2/4"</a> in url box or click to see this example.<h1>
+	Eg. type <a href="https://heroku-app-us-admissions.herokuapp.com/api/650/4/2">"https://heroku-app-us-admissions.herokuapp.com/api/650/4/2"</a> in url box or click to see this example.<h1>
 	<h1> If return value 0 then not admitted else if 1 then admitted<h1>
 	
 	"""
@@ -24,4 +25,4 @@ def test(gre,gpa,rank):
 
 # driver function
 if __name__ == '__main__':
-	app.run(debug=False)
+	app.run(debug=True)
