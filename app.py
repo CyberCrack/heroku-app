@@ -125,6 +125,7 @@ def putAPI():
 		return jsonify("ERROR")
 	studentID = id
 	if list(hasKeys.values()).count(True) == updateCount:
+		Database.updateadmit(id=studentID)
 		return jsonify(StudentID=studentID, Sucessfull=True)
 	else:
 		return jsonify("ERROR")

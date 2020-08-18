@@ -1,6 +1,8 @@
 import os
 import sqlite3
 
+import DeployableModel
+
 databaseExits = True
 if not os.path.exists("usadmissions.db"):
 	databaseExits = False
@@ -57,6 +59,14 @@ def updaterank(rank, id):
 
 	conn.commit()
 	return cursor.rowcount
+
+
+def updateadmit(id):
+	cursor.execute("SELECT gre,gpa,student_rank FROM admissions WHERE id=?", (id,))
+	gre, gpa, rank = cursor.fetchone()
+	admit = DeployableModel.getPredictions(gre=gre, gpa=gpa, rank=rank)
+	cursor.execute("UPDATE admissions SET admit = ? WHERE id = ?", (admit, id))
+	conn.commit()
 
 
 def deleteRecord(id):
