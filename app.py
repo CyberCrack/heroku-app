@@ -126,7 +126,7 @@ def putAPI():
 	studentID = id
 	if list(hasKeys.values()).count(True) == updateCount:
 		Database.updateadmit(id=studentID)
-		return jsonify(StudentID=studentID, Sucessfull=True)
+		return jsonify(StudentID=studentID, Successful=True)
 	else:
 		return jsonify("ERROR")
 
@@ -142,7 +142,7 @@ def deleteAPI():
 	studentID = id
 	updateCount = Database.deleteData(id=studentID)
 	if updateCount != 0:
-		return jsonify(StudentID=studentID, Sucessfull=True)
+		return jsonify(StudentID=studentID, Successful=True)
 	else:
 		return jsonify("ERROR")
 
