@@ -21,7 +21,7 @@ def home():
 
 @app.route('/api/<int:gre>/<gpa>/<int:rank>', methods=['GET'])
 def test(gre, gpa, rank):
-	if not gpa.isnumeric():
+	if not gpa.replace(".", "1", 1).isnumeric():
 		return jsonify("ERROR")
 	if not 0 <= gre <= 800:
 		return jsonify("ERROR")
