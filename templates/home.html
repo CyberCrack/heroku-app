@@ -1,0 +1,70 @@
+<html>
+<body>
+<a href="https://heroku-app-us-admissions.herokuapp.com/">Home</a>
+<h2>Hello</h2>
+<h2> Please use the following format to get the data using the GET Request</h2>
+<h2> https://heroku-app-us-admissions.herokuapp.com/api/&lt;GRE&gt;/&lt;GPA&gt;/&lt;RANK&gt; </h2>
+<h2> In place of &lt;GRE&gt; enter something like 100 and so on in each of the 3 values within range</h2>
+<h2> Allowed Range</h2>
+<h2> 0<=GRE<=800 </h2>
+<h2> 0<=GPA<=4 </h2>
+<h2> 1<=RANK<=4 </h2>
+<h2> Eg. type <a href="https://heroku-app-us-admissions.herokuapp.com/api/100/2/4">"https://heroku-app-us-admissions.herokuapp.com/api/100/2/4"</a>
+    in url box or click to see this example.</h2>
+<h2>Eg. type <a href="https://heroku-app-us-admissions.herokuapp.com/api/650/4/2">"https://heroku-app-us-admissions.herokuapp.com/api/650/4/2"</a>
+    in url box or click to see this example.</h2>
+<h2> If return value 0 then not admitted else if 1 then admitted</h2>
+<hr>
+<h2>If you want to do the POST request, please follow the following format: </h2>
+<h2>The POST request has to be sent at URL: https://heroku-app-us-admissions.herokuapp.com/api</h2>
+<h2>The body should contain the data in the JSON format :</h2>
+<h2>
+    {
+    "gre":&lt;int:gre&gt;,
+    "gpa":&lt;float:gpa&gt;,
+    "rank":&lt;int:rank&gt;
+    }
+</h2>
+<h2>Eg.:
+    {
+    "gre":650,
+    "gpa":4,
+    "rank":2
+    }
+</h2>
+<hr>
+<h2>If you want to do PUT request to update the data please follow the following format:</h2>
+<h2>The PUT request has to be sent at URL: https://heroku-app-us-admissions.herokuapp.com/api</h2>
+<h2>The body should contain the data in the JSON format :</h2>
+<h2>
+    {
+    "id":&lt;int:id&gt;
+    "gre":&lt;int:gre&gt;,
+    "gpa":&lt;float:gpa&gt;,
+    "rank":&lt;int:rank&gt;
+    }
+</h2>
+<h2>NOTE: In GRE, GPA, RANK any 2 are optional but minimum of 1 parameter is required.</h2>
+<hr>
+<h2>If you want to do DELETE request to delete the data please follow the following format:</h2>
+<h2>The PUT request has to be sent at URL: https://heroku-app-us-admissions.herokuapp.com/api</h2>
+<h2>The body should contain the data in the JSON format :</h2>
+<h2>
+    {
+    "id":&lt;int:id&gt;
+    }
+</h2>
+<h2>NOTE: ID is a required parameter.</h2>
+<hr>
+<h2>If you just want try it please fill out the following form</h2>
+<form action="" method="post">
+    <label for="gre">GRE:</label><br>
+    <input type="text" id="gre" name="gre" required><br>
+    <label for="gpa">GPA:</label><br>
+    <input type="text" id="gpa" name="gpa" required><br>
+    <label for="rank">Rank:</label><br>
+    <input type="text" id="rank" name="rank" required><br><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
