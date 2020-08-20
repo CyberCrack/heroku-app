@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 
-import Database
+import PostgresqlDatabase as Database
+# import SQLite3Database as Database
 from DeployableModel import getPredictions
 
 app = Flask(__name__)
@@ -141,7 +142,7 @@ def deleteAPI():
 
 	studentID = id
 	updateCount = Database.deleteData(id=studentID)
-	if updateCount != 0:
+	if updateCount != 0 and updateCount is not None:
 		return jsonify(StudentID=studentID, Successful=True)
 	else:
 		return jsonify("ERROR")
