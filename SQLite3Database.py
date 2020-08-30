@@ -3,9 +3,9 @@ import sqlite3
 
 import DeployableModel
 
-databaseExits = True
+databaseExists = True
 if not os.path.exists("usadmissions.db"):
-	databaseExits = False
+	databaseExists = False
 conn = sqlite3.connect('usadmissions.db', check_same_thread=False)
 cursor = conn.cursor()
 

@@ -79,6 +79,6 @@ def deleteRecord(id):
 	return cursor.rowcount
 
 
-exits = checkDatabaseExists()
-if not exits:
+exists = checkDatabaseExists()
+if not exists:
 	createDatabase()
