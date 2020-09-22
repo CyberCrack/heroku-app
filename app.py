@@ -148,6 +148,13 @@ def deleteAPI():
 		return jsonify("ERROR")
 
 
+@app.route('/api/<int:id>', methods=['GET'])
+def getStudentDetails(id):
+	result = Database.getRecord(id=id)
+	return jsonify(result)
+
+
+
 # driver function
 if __name__ == '__main__':
 	app.run(debug=True)

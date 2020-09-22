@@ -36,7 +36,7 @@ def getRecentID():
 	return cursor.fetchall()[0][0]
 
 
-if not databaseExits:
+if not databaseExists:
 	createDatabase()
 
 
@@ -74,3 +74,13 @@ def deleteRecord(id):
 
 	conn.commit()
 	return cursor.rowcount
+
+
+def getRecord(id):
+	cursor.execute("SELECT id,gre,gpa,student_rank FROM admissions WHERE id=?", (id,))
+	if cursor.rowcount == 1:
+		stud_id, gre, gpa, rank = cursor.fetchone()
+		return {"id": stud_id, "gre": gre, "gpa": gpa, "rank": rank}
+	else:
+		return "ID does not exist"
+
