@@ -154,6 +154,25 @@ def getStudentDetails(id):
 	return jsonify(result)
 
 
+@app.route('/api/student', methods=['POST'])
+def getStudentDetailsWithVerification():
+	data = {}
+	recv_data: dict = request.get_json()
+	try:
+		data['username'] = recv_data['username']
+		data['password'] = recv_data['password']
+		data['id'] = int(recv_data['id'])
+	except KeyError:
+		return jsonify("Please check the JSON keys")
+	except ValueError:
+		return jsonify("Please give valid id")
+	allow = Database.verifyCredentials(data=data)
+	if allow:
+		result = Database.getRecord(id=data['id'])
+	else:
+		return jsonify("Please check Credentials")
+	return jsonify(result)
+
 
 # driver function
 if __name__ == '__main__':

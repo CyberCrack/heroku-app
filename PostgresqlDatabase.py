@@ -30,11 +30,14 @@ def createDatabase():
 
 def insertData(gre, gpa, student_rank, admit):
 	cursor.execute("INSERT INTO admissions (gre,gpa,student_rank,admit) VALUES ( %s, %s, %s, %s	)", (gre, gpa, student_rank, admit))
+	recent_id = str(getRecentID())
+	cursor.execute("INSERT INTO student_login (username,student_password) VALUES ( %s, %s )", ("student" + recent_id, "student" + recent_id))
 	conn.commit()
 
 
 def deleteData(id):
 	cursor.execute("DELETE FROM admissions WHERE id=%s", (id,))
+	cursor.execute("DELETE FROM student_login WHERE id=%s", (id,))
 	conn.commit()
 
 
@@ -72,12 +75,6 @@ def updateadmit(id):
 	conn.commit()
 
 
-def deleteRecord(id):
-	cursor.execute("UPDATE admissions SET student_rank = %s WHERE id = %s", (id,))
-
-	conn.commit()
-	return cursor.rowcount
-
 def getRecord(id):
 	cursor.execute("SELECT id,gre,gpa,student_rank FROM admissions WHERE id=%s", (id,))
 	if cursor.rowcount == 1:
@@ -85,6 +82,14 @@ def getRecord(id):
 		return {"id": stud_id, "gre": gre, "gpa": gpa, "rank": rank}
 	else:
 		return "ID does not exist"
+
+
+def verifyCredentials(data):
+	cursor.execute("SELECT id FROM student_login WHERE username=%s and student_password=%s and id=%s",
+				   (data['username'], data['password'], data['id']))
+
+	return cursor.rowcount == 1
+
 
 exists = checkDatabaseExists()
 if not exists:
