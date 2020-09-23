@@ -1,5 +1,7 @@
-import psycopg2
 import os
+
+import psycopg2
+
 import DeployableModel
 
 DATABASE_URL = os.environ['DATABASE_URL']
@@ -30,8 +32,10 @@ def createDatabase():
 
 def insertData(gre, gpa, student_rank, admit):
 	cursor.execute("INSERT INTO admissions (gre,gpa,student_rank,admit) VALUES ( %s, %s, %s, %s	)", (gre, gpa, student_rank, admit))
+	conn.commit()
 	recent_id = str(getRecentID())
-	cursor.execute("INSERT INTO student_login (username,student_password) VALUES ( %s, %s )", ("student" + recent_id, "student" + recent_id))
+	cursor.execute("INSERT INTO student_login (id,username,student_password) VALUES ( %s, %s, %s )",
+				   (int(recent_id), "student" + recent_id, "student" + recent_id))
 	conn.commit()
 
 
