@@ -41,9 +41,10 @@ def insertData(gre, gpa, student_rank, admit):
 
 def deleteData(id):
 	cursor.execute("DELETE FROM admissions WHERE id=%s", (id,))
+	count = cursor.rowcount
 	cursor.execute("DELETE FROM student_login WHERE id=%s", (id,))
 	conn.commit()
-
+	return count
 
 def getRecentID():
 	cursor.execute("SELECT last_value FROM admissions_id_seq;")
