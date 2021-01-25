@@ -27,6 +27,12 @@ def createDatabase():
 	   admit INTEGER
 	)'''
 	cursor.execute(sql)
+	sql = '''CREATE TABLE student_login(
+		   id INTEGER PRIMARY KEY ,
+		   username TEXT NOT NULL,
+		   student_password TEXT NOT NULL
+		)'''
+	cursor.execute(sql)
 	conn.commit()
 
 
